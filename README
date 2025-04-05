@@ -20,7 +20,7 @@ git clone https://github.com/raphael-ps/distributed-digital-library-back.git
 ### 2. Crie e ative o ambiente virtual
 
 **Windows:**
-```bash
+```env
 python -m venv env
 env\Scripts\activate
 ```
@@ -43,7 +43,6 @@ Crie um arquivo `.env` com o seguinte conteúdo:
 
 ```env
 MONGO_URI= (Mongo server URI)
-DATABASE_NAME=library_db
 ```
 
 > 🔐 Nunca compartilhe o `.env` com credenciais públicas.

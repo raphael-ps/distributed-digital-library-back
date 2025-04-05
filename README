@@ -1,0 +1,57 @@
+# 🚀 FastAPI + MongoDB (Atlas)
+
+Projeto backend usando [FastAPI](https://fastapi.tiangolo.com/) com integração ao MongoDB Atlas.
+
+## ✅ Requisitos
+
+- Python 3.9+
+- Git (opcional)
+- MongoDB Atlas (ou local)
+- VS Code recomendado (com extensões Python, FastAPI, MongoDB)
+
+## 🧱 Setup do Projeto
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/raphael-ps/distributed-digital-library-back.git
+```
+
+### 2. Crie e ative o ambiente virtual
+
+**Windows:**
+```bash
+python -m venv env
+env\Scripts\activate
+```
+
+**Linux/macOS:**
+```bash
+python3 -m venv env
+source env/bin/activate
+```
+
+### 3. Instale as dependências
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure variáveis de ambiente
+
+Crie um arquivo `.env` com o seguinte conteúdo:
+
+```env
+MONGO_URI= (Mongo server URI)
+DATABASE_NAME=library_db
+```
+
+> 🔐 Nunca compartilhe o `.env` com credenciais públicas.
+
+### 5. Execute a aplicação
+
+```bash
+uvicorn main:app --reload
+```
+
+Acesse em: [http://localhost:8000/docs](http://localhost:8000/docs)

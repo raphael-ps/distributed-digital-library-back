@@ -8,4 +8,5 @@ client = MongoClient(os.getenv("MONGO_URI"))
 db = client.library_db
 
 collection_name = db["user"]
+book_collection = db["book"]
 

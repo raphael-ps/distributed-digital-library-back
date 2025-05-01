@@ -1,7 +1,11 @@
 from fastapi import FastAPI
-from pymongo.mongo_client import MongoClient
-from pymongo.server_api import ServerApi
-from routes.route import router
+from routes import auth, book
+
 app = FastAPI()
 
-app.include_router(router)
+app.include_router(auth.router)
+app.include_router(book.router)
+
+@app.get("/")
+def root():
+    return {"message": "API is running"}

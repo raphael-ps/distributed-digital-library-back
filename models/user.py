@@ -1,10 +1,3 @@
-from pydantic import BaseModel
-from datetime import datetime
+from db.mongodb import db
 
-class User(BaseModel):
-    name: str
-    password: str
-    created_at: datetime
-    active: bool
-
-    
+users_collection =  db["users"]

@@ -6,11 +6,20 @@ from pymongo import ReturnDocument
 def serialize_book(book) -> dict:
     return {
         "id": str(book["_id"]),
-        "name": book["name"],
-        "description": book["description"],
-        "genre": book["genre"],
-        "quantity": book["quantity"],
-        "available": book["available"]
+        "titulo": book.get("titulo"),
+        "autor": book.get("autor"),
+        "sinopse": book.get("sinopse"),
+        "nota": book.get("nota"),
+        "editora": book.get("editora"),
+        "genero": book.get("genero"),
+        "ano": book.get("ano"),
+        "idade_sugerida": book.get("idade_sugerida"),
+        "quantity": book.get("quantity"),
+        "cover_image": {
+            "filename": book["cover_image"]["filename"],
+            "content_type": book["cover_image"]["content_type"],
+            "data": book["cover_image"]["data"]
+        } if book.get("cover_image") else None
     }
 
 def get_all_books():

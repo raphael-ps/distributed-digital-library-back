@@ -41,15 +41,3 @@ def delete_book(book_id: str):
     result = books_collection.delete_one({"_id": ObjectId(book_id)})
     return result.deleted_count > 0
 
-def borrow_book(book_id: str):
-    result = books_collection.find_one_and_update(
-        {"_id": ObjectId(book_id), "quantity": {"$gt": 0}},
-        {"$inc": {"quantity": -1}},
-        return_document=ReturnDocument.AFTER
-    )
-    if result:
-        # Se a nova quantidade for 0, marcamos como não disponível
-        if result["quantity"] == 0:
-            books_collection.update_one({"_id": ObjectId(book_id)}, {"$set": {"available": False}})
-        return serialize_book(result)
-    return None

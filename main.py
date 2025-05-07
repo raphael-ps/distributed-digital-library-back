@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routes import auth, book
+from routes import auth, book, loan
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
@@ -18,6 +18,7 @@ app.add_middleware(
 
 app.include_router(auth.router)
 app.include_router(book.router)
+app.include_router(loan.router)
 
 @app.get("/")
 def root():
